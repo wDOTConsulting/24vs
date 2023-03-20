@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using DeviceAdapter.Abstraction.Devices.Cameras;
 
-namespace DeviceAdapter.Devices.Cameras.Adapters.Fake
+namespace DeviceAdapter.Fake.Devices.Cameras.Adapters
 {
     public class FakeAdapter : ICamerasAdapter
     {
@@ -17,27 +18,27 @@ namespace DeviceAdapter.Devices.Cameras.Adapters.Fake
         {
         }
 
-        public CamerasResponse CaptureSingle(string cam_id, string format)
+        public CamerasResponse CaptureSingle(string camId, string format)
         {
             return new CamerasResponse
             {
                 Success = true,
                 Images = new List<CamerasImage>
                 {
-                    new CamerasImage {CameraID = "CamF001", Image = CaptureJpg()}
+                    new CamerasImage {CameraId = "CamF001", Image = CaptureJpg()}
                 }
             };
         }
 
-        public CamerasResponse CaptureStreamBatch(string cam_id, string format, int num_images, int fps)
+        public CamerasResponse CaptureStreamBatch(string camId, string format, int numImages, int fps)
         {
             return new CamerasResponse
             {
                 Success = true,
                 Images = new List<CamerasImage>
                 {
-                    new CamerasImage {CameraID = "CamF001", Image = CaptureJpg()},
-                    new CamerasImage {CameraID = "CamF002", Image = CapturePng()}
+                    new CamerasImage {CameraId = "CamF001", Image = CaptureJpg()},
+                    new CamerasImage {CameraId = "CamF002", Image = CapturePng()}
                 }
             };
         }

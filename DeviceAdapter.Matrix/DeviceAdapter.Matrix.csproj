@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DeviceAdapter.Abstraction\DeviceAdapter.Abstraction.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="mv.impact.acquire">
+      <HintPath>..\..\..\..\..\Program Files\MATRIX VISION\mvIMPACT Acquire\bin\.NET\mv.impact.acquire.dll</HintPath>
+    </Reference>
+    <Reference Include="mv.impact.acquire.examples.helper">
+      <HintPath>..\..\..\..\..\Program Files\MATRIX VISION\mvIMPACT Acquire\bin\.NET\mv.impact.acquire.examples.helper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

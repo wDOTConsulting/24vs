@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace DeviceAdapter.Devices.Cameras
+namespace DeviceAdapter.Abstraction.Devices.Cameras
 {
     /// <summary>
     ///     Odpověď adaptéru kamery.

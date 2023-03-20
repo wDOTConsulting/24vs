@@ -1,6 +1,4 @@
 using System.IO;
-using DeviceAdapter.Devices.Cameras;
-using DeviceAdapter.Devices.Cameras.Adapters.Matrix;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using DeviceAdapter.Abstraction.Devices.Cameras;
+using DeviceAdapter.Matrix.Devices.Cameras.Adapters.Matrix;
 
 namespace DeviceAdapter
 {
@@ -30,9 +30,8 @@ namespace DeviceAdapter
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "DeviceAdapter", Version = "v1"});
             });
 
-            
 
-            // Register the Cameras Adapter
+            // Register the Cameras Adapters (FakeAdapter, MatrixAdapter)
             services.AddScoped<ICamerasAdapter, MatrixAdapter>();
         }
 

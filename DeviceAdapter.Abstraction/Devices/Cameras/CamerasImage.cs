@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DeviceAdapter.Devices.Cameras
+namespace DeviceAdapter.Abstraction.Devices.Cameras
 {
     /// <summary>
     ///     Obrázek z kamery.
@@ -11,7 +11,7 @@ namespace DeviceAdapter.Devices.Cameras
         ///     Sériové číslo kamery, která obrázek pořídila (např. 0815-0000).
         /// </summary>
         [JsonPropertyName("CameraID")]
-        public string CameraID { get; set; }
+        public string CameraId { get; set; }
 
         /// <summary>
         ///     Base64 binární reprezentace obrázku v požadovaném formátu (např. /9j/4AAQSkZJRg...).

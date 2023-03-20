@@ -1,6 +1,5 @@
-﻿using DeviceAdapter.Devices.Cameras;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
+using DeviceAdapter.Abstraction.Devices.Cameras;
 
 namespace DeviceAdapter.Controllers
 {
@@ -9,18 +8,19 @@ namespace DeviceAdapter.Controllers
     public class CamerasController : ControllerBase, ICamerasAdapter
     {
         private readonly ICamerasAdapter _adapter;
-        private readonly ILogger<CamerasController> _logger;
 
-        public CamerasController(ICamerasAdapter adapter, ILogger<CamerasController> logger)
+        public CamerasController(ICamerasAdapter adapter)
         {
             _adapter = adapter;
-            _logger = logger;
         }
 
         [HttpGet]
         [Route("cameras/{camid}/connect")]
         public void Connect(string camid)
         {
+            //TODO TRACE
+            //camid = "0000"; //TODO (0000, 0001) (VirtualDevice-0000, VirtualDevice-0001)
+
             _adapter.Connect(camid);
         }
 
@@ -28,21 +28,38 @@ namespace DeviceAdapter.Controllers
         [Route("cameras/{camid}/disconnect")]
         public void Disconnect(string camid)
         {
+            //TODO TRACE
+            //camid = "0000"; //TODO (0000, 0001) (VirtualDevice-0000, VirtualDevice-0001)
+
             _adapter.Disconnect(camid);
         }
 
         [HttpGet]
         [Route("capture/single/{format}/{cam_id}")]
-        public CamerasResponse CaptureSingle(string cam_id, string format)
+        public CamerasResponse CaptureSingle(string camId, string format)
         {
-            return _adapter.CaptureSingle(cam_id, format);
+            //TODO TRACE
+            //Base64 to Image: https://codebeautify.org/base64-to-image-converter
+
+            //cam_id = "0000"; //TODO (0000, 0001) (VirtualDevice-0000, VirtualDevice-0001)
+            //format = "Jpeg"; //TODO Jpeg, Png
+
+            return _adapter.CaptureSingle(camId, format);
         }
 
         [HttpGet]
         [Route("capture/stream-batch/{format}/{cam_id}/{num_images}/{fps}")]
-        public CamerasResponse CaptureStreamBatch(string cam_id, string format, int num_images, int fps)
+        public CamerasResponse CaptureStreamBatch(string camId, string format, int numImages, int fps)
         {
-            return _adapter.CaptureStreamBatch(cam_id, format, num_images, fps);
+            //TODO TRACE
+            //Base64 to Image: https://codebeautify.org/base64-to-image-converter
+
+            //cam_id = "0000"; //TODO (0000, 0001) (VirtualDevice-0000, VirtualDevice-0001)
+            //format = "Jpeg"; //TODO Jpeg, Png
+            //num_images = 2;
+            //fps = 10;
+
+            return _adapter.CaptureStreamBatch(camId, format, numImages, fps);
         }
     }
 }
